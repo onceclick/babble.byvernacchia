@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Babble by Vernacchia by vernak2539</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Babble by Vernacchia</h1>
+        <p>A jekyll theme for my new static site using bootstrap and other things</p>
+
+        <p class="view"><a href="https://github.com/vernak2539/babble.byvernacchia">View the Project on GitHub <small>vernak2539/babble.byvernacchia</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/vernak2539/babble.byvernacchia/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/vernak2539/babble.byvernacchia/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/vernak2539/babble.byvernacchia">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a name="a-custom-jekyll-theme-for-my-babble" class="anchor" href="#a-custom-jekyll-theme-for-my-babble"><span class="octicon octicon-link"></span></a>A Custom Jekyll Theme For My Babble</h2>
+
+<h3>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
+
+<ol>
+<li>Creates posts (obviously)</li>
+<li><a href="http://charliepark.org/tags-in-jekyll/">Creates tag structure</a></li>
+<li><a href="http://blog.55minutes.com/2012/03/liquid-gist-tag-for-jekyll/#gist-1937862-gist-rb">Displays gists</a></li>
+<li><a href="https://gist.github.com/joelverhagen/1805814">Displays youtube videos</a></li>
+<li>Pagination</li>
+<li>
+<a href="https://github.com/robwierzbowski/jekyll-image-tag">Custom image tags + resizing</a> <em>modified for my use case</em>
+
+<ul>
+<li>
+<a href="https://github.com/minimagick/minimagick">Minimagick</a> - <em>for liquid image tags</em>
+</li>
+<li>
+<a href="http://www.imagemagick.org/script/index.php">Imagemagick</a> - <em>for liquid image tags</em>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://github.com/slashdotdash/jekyll-lunr-js-search">Search</a>
+
+<ul>
+<li>Modified from source to do what you see on the blog.</li>
+<li>Changes include:
+
+<ol>
+<li>basic filtering of results (not delivering pages)</li>
+<li>modified text display of entries delivered</li>
+<li>substring title returned if over certain amount of characters</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/imathis/octopress/blob/master/plugins/jsfiddle.rb">jsFiddle</a></li>
+</ol><h3>
+<a name="gems-needed" class="anchor" href="#gems-needed"><span class="octicon octicon-link"></span></a>GEMs Needed</h3>
+
+<p>I have just started using Ruby v2.0.0 (but this will work with v1.9.3). GEMs needed include:</p>
+
+<ol>
+<li>rdiscount - <em>for rendering</em>
+</li>
+<li>activesupport - <em>for caching</em>
+</li>
+<li>json - <em>for Lunr Search</em>
+</li>
+<li>nokogiri - <em>for Lunr Search</em>
+</li>
+</ol><h3>
+<a name="grunt-tasks" class="anchor" href="#grunt-tasks"><span class="octicon octicon-link"></span></a>Grunt Tasks</h3>
+
+<ol>
+<li>
+<strong>default</strong>
+
+<ul>
+<li>jshint</li>
+<li>compresses bootstrap LESS</li>
+<li>compresses site LESS</li>
+<li>compresses search pages specific LESS</li>
+<li>uglifies JS</li>
+<li>uglifies search page specific JS</li>
+<li>copies bootstrap images into main image directory (from bower_components)</li>
+</ul>
+</li>
+<li>
+<strong>dev</strong>
+
+<ul>
+<li>jshint</li>
+<li>compresses bootstrap LESS</li>
+<li>compiles site LESS</li>
+<li>compiles search pages specific LESS</li>
+<li>copies unminified JS into min/</li>
+<li>copies unminified search page specific JS into min/</li>
+<li>copies bootstrap images into main image directory (from bower_components)</li>
+</ul>
+</li>
+<li>
+<strong>watchAll</strong>
+
+<ul>
+<li>
+<em>dev</em> task executed</li>
+<li>watches all LESS and JS files in top level directory
+
+<ul>
+<li>executes <em>dev</em> task when changes occur</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>release</strong> (super optimized)
+
+<ul>
+<li>
+<em>Need to have optipng &amp; jpegtran installed.</em>
+
+<ul>
+<li>
+<code>brew install optipng jpeg</code> (MAC)</li>
+<li>
+<code>apt-get install optipng libjpeg libjpeg-progs</code> (Linux not ubuntu)</li>
+<li>
+<code>apt-get install optipng libjpeg62 libjpeg-progs</code> (ubuntu)</li>
+</ul>
+</li>
+<li>runs <em>default</em> task</li>
+<li>executes <code>jekyll build</code>
+</li>
+<li>optimizes images in _site/ directory (img/ and generated/)</li>
+<li>removes unnecessary files in _site/ directory</li>
+<li>minifies HTML</li>
+<li>minifies JSON used by Lunr search plugin</li>
+</ul>
+</li>
+</ol><h3>
+<a name="if-youre-using-github-pages" class="anchor" href="#if-youre-using-github-pages"><span class="octicon octicon-link"></span></a>If You're Using Github Pages</h3>
+
+<p>If you're using Github Pages to publish with this "theme" you <strong>WILL NOT</strong> be able to use any custom plugins. Checkout the two links below, which outline what you can do to combat this problem.</p>
+
+<ul>
+<li><a href="http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html">http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html</a></li>
+<li><a href="http://davidensinger.com/2013/04/deploying-jekyll-to-github-pages/">http://davidensinger.com/2013/04/deploying-jekyll-to-github-pages/</a></li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/vernak2539">vernak2539</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-35367457-4");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
