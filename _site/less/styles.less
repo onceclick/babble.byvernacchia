@@ -1,0 +1,387 @@
+@import "helpers.less";
+
+@red: #cd4128;
+
+.size-font (@multiple: 1) {
+	font-size: @baseFontSize * @multiple;
+	line-height: @baseFontSize * @multiple * 1.42857142857143;
+}
+
+.transitions (@CSS: all, @timing: 0.2s, @ease: ease-in) {
+	-webkit-transition: @CSS @timing @ease;
+		 -moz-transition: @CSS @timing @ease;
+			 -o-transition: @CSS @timing @ease;
+					transition: @CSS @timing @ease;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+body {
+	.size-font(1.2);
+	
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	a {
+		.transitions(color);
+
+		&:hover {
+			text-decoration: none;
+			color: darken(@red, 10%) !important; 
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 10;
+
+		h3 {
+			color:@gray;
+			line-height: 35px;
+			word-wrap: break-word;
+
+			>a {
+				word-wrap: break-word;
+			}
+		}
+
+		p {
+			word-wrap: break-word;
+		}
+
+		.img-centered {
+			height: auto !important;
+			margin-left:auto;
+			margin-right:auto;
+			margin-bottom: 10px;
+			padding: 5px 0;
+			max-width: 100%;
+
+			img {
+				box-shadow: 0 0 10px 0px rgba(0,0,0,.2);
+			}
+		}
+
+		.site-title {
+			color: @red !important;
+
+			>a {
+				color: @red !important;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.post {
+			width:95%;
+			margin-bottom: 30px;
+
+			ul, ol {
+				margin-left: 40px;
+
+				>li {
+					padding-bottom:5px;
+				}
+			}
+
+			table {
+				margin-bottom: 10px;
+
+				td {
+					padding:2px 5px;
+				}
+			}
+
+			>h3 {
+				margin-bottom: 0 !important;
+			}
+
+			>.post-meta {
+				color: @gray;
+				.size-font(.95);
+				margin-bottom: 3px;
+			}
+
+			>.post-content {
+				a, a:visited {
+					color: @red;
+				}
+			}
+		}
+
+		.tag-container {
+			margin-bottom: 5px;
+			.size-font(0.85);
+
+			>a {
+				color: @red;
+
+				>.comma {
+					color: @black;
+				}
+			}
+		}
+
+		.tag-title {
+			color:@gray;
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		.bio-image {
+			width:140px;
+			height: 140px;
+			margin: 0 auto;
+			background-image: url(/img/headshot.jpg);
+			background-size: 140px 140px;
+			background-repeat: no-repeat;
+			-webkit-border-radius : 500px;
+			-moz-border-radius    : 500px;
+			border-radius         : 500px;
+		}
+
+		.bio-desc {
+			margin-top: 10px;
+			color:@gray;
+			.size-font(1.1);
+		}
+
+		.txt-center {
+			text-align: center !important;
+		}
+
+		.social {
+			list-style:none;
+			margin: 5px auto 0;
+			text-align: center;
+
+			>li {
+				background-image: url('/img/social-icons.png');
+				background-size: 120px 30px;
+				background-repeat: no-repeat;
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+				opacity: 0.8;
+				margin-right: 5%;
+				.transitions();
+				zoom: 1;
+				*display: inline;
+				
+				&:last-child {
+					margin-right:0;
+				}
+
+				&:hover {
+					opacity: 1;
+				}
+
+				>a {
+					display:block;
+					width:100%;
+					height:100%;
+				}
+			}
+
+			>.linkedin {
+				background-position: 0 0;
+			}
+
+			>.twitter {
+				background-position: -60px 0;
+			}
+
+			>.github {
+				background-position: -30px 0;
+			}
+
+			>.about-me {
+				background-position: -90px 0;
+			}
+		}
+
+		.repo-btn-container {
+			text-align: center;
+			margin-top: 40px;
+
+			a {
+				.transitions(none, 0);
+
+				&:hover {
+					color:@white !important;
+				}
+			}
+		}
+
+		.gist {
+			.size-font(0.9);
+		}
+
+		.video-container {
+			position: relative;
+			padding-bottom: 56.25%;
+			padding-top: 30px;
+			height: 0;
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+		.video-container { 
+			iframe, object, embed {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: 0px;
+			}
+		}
+
+		.jsfiddle-insert {
+			border: none;
+		}
+
+		.post-pagination {
+			text-align: center;
+		}
+
+		.mobile-pagination {
+			margin: 10px 0 20px;
+
+			>.dropdown {
+				display: block;
+				width: 210px;
+				margin: 0 auto;
+
+				>.dropdown-menu {
+					bottom: 110%;
+					top: auto !important;
+				}
+			}
+		}
+
+	}
+}
+
+#sharingIsCaring {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+.pad-bottom {
+	margin-bottom: 10px;
+}
+
+@inputHeight: 90px;
+
+.site-search-container {
+	position: fixed;
+	top: -1 * ( @inputHeight + 1 );
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+
+	>.search-toggle {
+		position: absolute;
+		top: @inputHeight;
+		left: 50%;
+		width: 80px;
+		height: 26px;
+		margin-left: -40px;
+		background: #fff;
+		border: 1px solid #ccc;
+		border-top: none;
+		text-align: center;
+		border-radius: 0 0 4px 4px;
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: bold;
+		color: #08c;
+	}
+
+	form {
+		width: 100%;
+		margin: 0 auto;
+
+		>.custom-input {
+			position: relative;
+			width: 940px;
+			margin: 0 auto;
+			display: block;
+			height: @inputHeight;
+			background: url( /img/search-icon.png ) no-repeat;
+			background-position: 10px center;
+			background-size: 60px 60px;
+			box-shadow: none;
+			border-radius: 0;
+			border:0;
+			padding: 15px 5px 15px 85px;
+			font-size: 36px;
+			line-height: normal;
+			font-style: italic;
+			outline:  0px !important;
+			-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+			-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+			box-sizing: border-box;         /* Opera/IE 8+ */
+
+			&:focus {
+				outline: none;
+				box-shadow: none !important;
+			}
+		}
+	}
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+	/* Retina-specific stuff here */
+	.bio-image {
+		background-image: url(/img/headshot-2x.jpg) !important;
+	}
+
+	.social {
+		>li {
+			background-image: url(/img/social-icons-2x.png) !important;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.site-search-container {
+		form {
+			>.custom-input {
+				width: 1170px;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.site-search-container {
+		form {
+			>.custom-input {
+				width: 1170px;
+			}
+		}
+	}
+}
+
+@media (max-width: 979px) {
+	.site-search-container {
+		form {
+			>.custom-input {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@import "syntax.less";
