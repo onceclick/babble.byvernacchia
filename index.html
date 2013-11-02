@@ -18,7 +18,7 @@
         <h1>Babble by Vernacchia</h1>
         <p>A jekyll theme for my new static site using bootstrap and other things</p>
 
-        <p class="view"><a href="https://github.com/vernak2539/babble.byvernacchia">View the Project on GitHub <small>vernak2539/babble.byvernacchia</small></a></p>
+        <p class="view"><a href="https://github.com/vernak2539/babble.byvernacchia">View the Project on GitHub </a></p>
 
 
         <ul>
@@ -28,11 +28,17 @@
         </ul>
       </header>
       <section>
-        <h2>
-<a name="a-custom-jekyll-theme-for-my-babble" class="anchor" href="#a-custom-jekyll-theme-for-my-babble"><span class="octicon octicon-link"></span></a>A Custom Jekyll Theme For My Babble</h2>
 
-<h3>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
+<h2><a name="if-youre-using-github-pages" class="anchor" href="#if-youre-using-github-pages"><span class="octicon octicon-link"></span></a>If You're Using Github Pages</h2>
+
+<p>If you're using Github Pages to publish with this "theme" you <strong>WILL NOT</strong> be able to use any custom plugins. Checkout the two links below, which outline what you can do to combat this problem.</p>
+
+<ul>
+<li><a href="http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html">http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html</a></li>
+<li><a href="http://davidensinger.com/2013/04/deploying-jekyll-to-github-pages/">http://davidensinger.com/2013/04/deploying-jekyll-to-github-pages/</a></li>
+</ul>
+
+<h2><a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
 
 <ol>
 <li>Creates posts (obviously)</li>
@@ -42,36 +48,19 @@
 <li>Pagination</li>
 <li>
 <a href="https://github.com/robwierzbowski/jekyll-image-tag">Custom image tags + resizing</a> <em>modified for my use case</em>
-
-<ul>
-<li>
-<a href="https://github.com/minimagick/minimagick">Minimagick</a> - <em>for liquid image tags</em>
-</li>
-<li>
-<a href="http://www.imagemagick.org/script/index.php">Imagemagick</a> - <em>for liquid image tags</em>
-</li>
-</ul>
 </li>
 <li>
 <a href="https://github.com/slashdotdash/jekyll-lunr-js-search">Search</a>
-
-<ul>
-<li>Modified from source to do what you see on the blog.</li>
-<li>Changes include:
-
-<ol>
-<li>basic filtering of results (not delivering pages)</li>
-<li>modified text display of entries delivered</li>
-<li>substring title returned if over certain amount of characters</li>
-</ol>
-</li>
-</ul>
 </li>
 <li><a href="https://github.com/imathis/octopress/blob/master/plugins/jsfiddle.rb">jsFiddle</a></li>
-</ol><h3>
-<a name="gems-needed" class="anchor" href="#gems-needed"><span class="octicon octicon-link"></span></a>GEMs Needed</h3>
+</ol>
+
+<p>To see a full feature list and what I modified take a look at <a href="https://github.com/vernak2539/babble.byvernacchia/blob/master/README.md">my README</a>.</p>
+
+<h2><a name="gems-needed" class="anchor" href="#gems-needed"><span class="octicon octicon-link"></span></a>GEMs Needed</h2>
 
 <p>I have just started using Ruby v2.0.0 (but this will work with v1.9.3). GEMs needed include:</p>
+
 
 <ol>
 <li>rdiscount - <em>for rendering</em>
@@ -82,84 +71,127 @@
 </li>
 <li>nokogiri - <em>for Lunr Search</em>
 </li>
-</ol><h3>
-<a name="grunt-tasks" class="anchor" href="#grunt-tasks"><span class="octicon octicon-link"></span></a>Grunt Tasks</h3>
+</ol>
 
-<ol>
-<li>
-<strong>default</strong>
+<h2><a name="gems-needed" class="anchor" href="#gems-needed"><span class="octicon octicon-link"></span></a>How to Use</h2>
 
-<ul>
-<li>jshint</li>
-<li>compresses bootstrap LESS</li>
-<li>compresses site LESS</li>
-<li>compresses search pages specific LESS</li>
-<li>uglifies JS</li>
-<li>uglifies search page specific JS</li>
-<li>copies bootstrap images into main image directory (from bower_components)</li>
-</ul>
-</li>
-<li>
-<strong>dev</strong>
+<h3>Pagination</h3>
 
-<ul>
-<li>jshint</li>
-<li>compresses bootstrap LESS</li>
-<li>compiles site LESS</li>
-<li>compiles search pages specific LESS</li>
-<li>copies unminified JS into min/</li>
-<li>copies unminified search page specific JS into min/</li>
-<li>copies bootstrap images into main image directory (from bower_components)</li>
-</ul>
-</li>
-<li>
-<strong>watchAll</strong>
+<p>This will automatically paginate based on value set in _config.yml</p>
 
-<ul>
-<li>
-<em>dev</em> task executed</li>
-<li>watches all LESS and JS files in top level directory
+<pre>
+paginate: 5
+</pre>
 
-<ul>
-<li>executes <em>dev</em> task when changes occur</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<strong>release</strong> (super optimized)
 
-<ul>
-<li>
-<em>Need to have optipng &amp; jpegtran installed.</em>
+<h3>Tags</h3>
 
-<ul>
-<li>
-<code>brew install optipng jpeg</code> (MAC)</li>
-<li>
-<code>apt-get install optipng libjpeg libjpeg-progs</code> (Linux not ubuntu)</li>
-<li>
-<code>apt-get install optipng libjpeg62 libjpeg-progs</code> (ubuntu)</li>
-</ul>
-</li>
-<li>runs <em>default</em> task</li>
-<li>executes <code>jekyll build</code>
-</li>
-<li>optimizes images in _site/ directory (img/ and generated/)</li>
-<li>removes unnecessary files in _site/ directory</li>
-<li>minifies HTML</li>
-<li>minifies JSON used by Lunr search plugin</li>
-</ul>
-</li>
-</ol><h3>
-<a name="if-youre-using-github-pages" class="anchor" href="#if-youre-using-github-pages"><span class="octicon octicon-link"></span></a>If You're Using Github Pages</h3>
+<p>Tags will be created for you automatically if you put them in your post front-matter.</p>
 
-<p>If you're using Github Pages to publish with this "theme" you <strong>WILL NOT</strong> be able to use any custom plugins. Checkout the two links below, which outline what you can do to combat this problem.</p>
+<pre>
+---
+layout: post
+title: Babble by Vernacchia Jekyll Theme
+date: 2013-10-31 20:27:32
+tags:
+  - jekyll
+  - jekyll-theme
+  - twitter-bootstrap
+summary: Summare for this post
+---
+</pre>
 
-<ul>
-<li><a href="http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html">http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html</a></li>
-<li><a href="http://davidensinger.com/2013/04/deploying-jekyll-to-github-pages/">http://davidensinger.com/2013/04/deploying-jekyll-to-github-pages/</a></li>
-</ul>
+
+<h3>Gists</h3>
+
+<p>To create a Github Gist use the sytax below.</p>
+
+<pre>
+// single page gists
+{% gist identifier %}
+
+// multi-page gists
+{% gist identifier/filename %}
+
+// example
+{% gist 82c02b8fed1877368d7a %}
+{% gist 82c02b8fed1877368d7a/intelligent-dropdown.js %}
+</pre>
+
+
+<h3>Youtube Videos</h3>
+
+<pre>
+
+// no auto width (will default to 100%)
+{% youtube identifier %}
+
+// no width or height specified. Defaults to 560(w) x 420(h)
+{% youtube identifier %}
+
+// specific width (870) and height (500)
+{% youtube identifier 870 500 %}
+
+// examples
+{% youtube 9kf51FpBuXQ 870 653 %}
+{% youtube 9kf51FpBuXQ %}
+
+</pre>
+
+
+<h3>Image Resizing and Optimization</h3>
+
+<p>Using this Liquid tag will resize your images. I've modified the original script to add classes that automatically center the image if it's not as big as the containing element.</p>
+
+<p>I also modified it to add a height and width attribute to the image tag that is generated. All images generated are fully responsive.</p>
+
+<p>The following needs to be added to your _config.yml.</p>
+
+<pre>
+image:
+  source: uploads
+  output: generated
+  presets:
+    centered:
+      attr:
+</pre>
+
+
+<p>And to use in your posts, add something like below.</p>
+
+<pre>
+// basic
+{% image [preset or WxH] path/to/img.jpg [attr="value"] %}
+
+// this theme uses this syntax most of the time
+{% image 870xAUTO /2013/04/medium-fp.jpg %}
+</pre>
+
+
+<h3>jsFiddle</h3>
+
+<p>This Liquid tag will embed a jsFiddle into your post. Stolen from <a href="https://github.com/imathis/octopress/blob/master/plugins/jsfiddle.rb">Octopress</a>.</p>
+
+<pre>
+// basic. will include all tabs
+{% jsfiddle fiddle_id %}
+
+// basic. specific tabs included
+{% jsfiddle fiddle_id [tabs] %}
+
+// example
+{% jsfiddle ccWP7 %}
+
+// css tab excluded
+{% jsfiddle ccWP7 js,html,result %}
+</pre>
+
+
+<h3>Search</h3>
+
+<p>A JSON file is generated after the whole site is indexed by the Lunr Search plugin. The search page is located <a href="https://github.com/vernak2539/babble.byvernacchia/blob/master/search/index.html">here</a> if you want to see my implementation.</p>
+
+
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/vernak2539">vernak2539</a></p>
