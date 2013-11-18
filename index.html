@@ -49,10 +49,13 @@
 <li>
 <a href="https://github.com/robwierzbowski/jekyll-image-tag">Custom image tags + resizing</a> <em>modified for my use case</em>
 </li>
+<li><a href="https://github.com/imathis/octopress/blob/master/plugins/jsfiddle.rb">jsFiddle</a></li>
 <li>
 <a href="https://github.com/slashdotdash/jekyll-lunr-js-search">Search</a>
 </li>
-<li><a href="https://github.com/imathis/octopress/blob/master/plugins/jsfiddle.rb">jsFiddle</a></li>
+<li>Post Thumbnails</li>
+<li>Twitter Card Integration (summary and large summary)</li>
+<li>Open Graph Integration</li>
 </ol>
 
 <p>To see a full feature list and what I modified take a look at <a href="https://github.com/vernak2539/babble.byvernacchia/blob/master/README.md">my README</a>.</p>
@@ -191,6 +194,33 @@ image:
 
 <p>A JSON file is generated after the whole site is indexed by the Lunr Search plugin. The search page is located <a href="https://github.com/vernak2539/babble.byvernacchia/blob/master/search/index.html">here</a> if you want to see my implementation.</p>
 
+<h3>Post Thumbnails</h3>
+
+<p>To include a post thumbnail on index/paginated pages, you only need to edit your post's Front-matter.</p>
+
+<pre>
+---
+thumbnail: 'images.jpg' // thumbnail
+heroImage: 'images.jpg' // Hero image
+---
+</pre>
+
+<p>These will only be displayed on the index or paginated pages. <strong>NOT</strong> on actual posts.</p>
+
+<p>These images should be stored at <code>/img/posts/hero_images|thumbnails</code></p>
+
+<p>These can be used in unison.</p>
+
+<h3>Twitter Cards</h3>
+
+<p>This theme supports Summary and Large Summary Twitter Cards. You just have to edit the post's Front-matter. If you have a large image, the thumbnail image will be ignored.</p>
+
+<pre>
+---
+twiitterThumbnail: 'http://yourdoman.com/path/to/image' // summary thumbnail
+twitterHeroImage: 'http://yourdoman.com/path/to/image' // large summary image
+---
+</pre>
 
       </section>
       <footer>
